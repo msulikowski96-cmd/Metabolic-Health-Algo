@@ -1,30 +1,57 @@
 import { Platform } from "react-native";
 
-const tintColorLight = "#007AFF";
-const tintColorDark = "#0A84FF";
+export const MetabolicColors = {
+  primary: "#6B9E78",
+  primaryDark: "#5A8A66",
+  accent: "#E8A87C",
+  background: "#FAFBFC",
+  surface: "#FFFFFF",
+  textPrimary: "#2C3E50",
+  textSecondary: "#7F8C8D",
+  success: "#27AE60",
+  warning: "#F39C12",
+  error: "#E74C3C",
+  inputBorder: "#E0E6ED",
+  inputFocus: "#6B9E78",
+  gradients: {
+    hero: ["#A8E6CF", "#DCD0FF"],
+    bmi: ["#CEE5F2", "#ACCBEE"],
+    bmr: ["#D4F1E3", "#A8E6CF"],
+    tdee: ["#FFE6D5", "#FFD1BA"],
+  },
+  zones: {
+    underweight: "#3498DB",
+    normal: "#27AE60",
+    overweight: "#F39C12",
+    obese: "#E74C3C",
+  },
+};
+
+const tintColorLight = MetabolicColors.primary;
+const tintColorDark = "#7AB88A";
 
 export const Colors = {
   light: {
-    text: "#11181C",
+    text: MetabolicColors.textPrimary,
     buttonText: "#FFFFFF",
-    tabIconDefault: "#687076",
+    tabIconDefault: MetabolicColors.textSecondary,
     tabIconSelected: tintColorLight,
-    link: "#007AFF",
-    backgroundRoot: "#FFFFFF", // Elevation 0
-    backgroundDefault: "#F2F2F2", // Elevation 1
-    backgroundSecondary: "#E6E6E6", // Elevation 2
-    backgroundTertiary: "#D9D9D9", // Elevation 3
+    link: MetabolicColors.primary,
+    backgroundRoot: MetabolicColors.background,
+    backgroundDefault: MetabolicColors.surface,
+    backgroundSecondary: "#F5F7F9",
+    backgroundTertiary: "#EEF1F4",
   },
   dark: {
     text: "#ECEDEE",
     buttonText: "#FFFFFF",
     tabIconDefault: "#9BA1A6",
     tabIconSelected: tintColorDark,
-    link: "#0A84FF",
-    backgroundRoot: "#1F2123", // Elevation 0
-    backgroundDefault: "#2A2C2E", // Elevation 1
-    backgroundSecondary: "#353739", // Elevation 2
-    backgroundTertiary: "#404244", // Elevation 3
+    link: "#7AB88A",
+    backgroundRoot: "#1A1D1F",
+    backgroundDefault: "#252829",
+    backgroundSecondary: "#303335",
+    backgroundTertiary: "#3B3E41",
   },
 };
 
@@ -38,35 +65,36 @@ export const Spacing = {
   "3xl": 32,
   "4xl": 40,
   "5xl": 48,
-  inputHeight: 48,
+  "6xl": 64,
+  inputHeight: 52,
   buttonHeight: 52,
 };
 
 export const BorderRadius = {
   xs: 8,
-  sm: 12,
-  md: 18,
-  lg: 24,
-  xl: 30,
-  "2xl": 40,
-  "3xl": 50,
+  sm: 10,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  "2xl": 24,
+  "3xl": 32,
   full: 9999,
 };
 
 export const Typography = {
   h1: {
-    fontSize: 32,
-    lineHeight: 40,
+    fontSize: 48,
+    lineHeight: 58,
     fontWeight: "700" as const,
   },
   h2: {
-    fontSize: 28,
-    lineHeight: 36,
-    fontWeight: "700" as const,
+    fontSize: 36,
+    lineHeight: 47,
+    fontWeight: "600" as const,
   },
   h3: {
     fontSize: 24,
-    lineHeight: 32,
+    lineHeight: 34,
     fontWeight: "600" as const,
   },
   h4: {
@@ -74,15 +102,30 @@ export const Typography = {
     lineHeight: 28,
     fontWeight: "600" as const,
   },
+  bodyLarge: {
+    fontSize: 18,
+    lineHeight: 29,
+    fontWeight: "400" as const,
+  },
   body: {
     fontSize: 16,
-    lineHeight: 24,
+    lineHeight: 26,
     fontWeight: "400" as const,
   },
   small: {
     fontSize: 14,
     lineHeight: 20,
     fontWeight: "400" as const,
+  },
+  caption: {
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: "400" as const,
+  },
+  label: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: "500" as const,
   },
   link: {
     fontSize: 16,
@@ -91,28 +134,40 @@ export const Typography = {
   },
 };
 
+export const Shadows = {
+  card: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  cardHover: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+};
+
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: "system-ui",
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: "ui-serif",
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: "ui-rounded",
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: "ui-monospace",
+    sans: "Inter_400Regular",
+    sansMedium: "Inter_500Medium",
+    sansSemiBold: "Inter_600SemiBold",
+    sansBold: "Inter_700Bold",
   },
   default: {
-    sans: "normal",
-    serif: "serif",
-    rounded: "normal",
-    mono: "monospace",
+    sans: "Inter_400Regular",
+    sansMedium: "Inter_500Medium",
+    sansSemiBold: "Inter_600SemiBold",
+    sansBold: "Inter_700Bold",
   },
   web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded:
-      "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+    sans: "Inter_400Regular, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    sansMedium: "Inter_500Medium, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    sansSemiBold: "Inter_600SemiBold, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    sansBold: "Inter_700Bold, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
   },
 });
