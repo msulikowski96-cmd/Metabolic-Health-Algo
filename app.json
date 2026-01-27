@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MetabolicAI",
-    "slug": "tytyt",
+    "slug": "ty",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -45,9 +45,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "fe8f8592-233e-467e-960e-44d836965c3a"
+        "projectId": "6e949fc7-a681-4267-9855-876b855d192f"
       }
     },
-    "owner": "teabe78ths"
+    "owner": "teabe78th"
   }
 }
