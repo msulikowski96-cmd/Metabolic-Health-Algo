@@ -201,10 +201,11 @@ function configureExpoAndLanding(app: express.Application) {
   app.use("/assets", express.static(path.resolve(process.cwd(), "assets")));
   app.use(express.static(path.resolve(process.cwd(), "static-build")));
 
-  // Serve ads.txt explicitly
+  // Serve ads.txt explicitly with correct content type
   app.get("/ads.txt", (req, res) => {
     const adsPath = path.resolve(process.cwd(), "ads.txt");
     if (fs.existsSync(adsPath)) {
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
       res.sendFile(adsPath);
     } else {
       res.status(404).send("Not Found");
