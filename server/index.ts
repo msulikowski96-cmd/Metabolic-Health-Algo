@@ -201,6 +201,16 @@ function configureExpoAndLanding(app: express.Application) {
   app.use("/assets", express.static(path.resolve(process.cwd(), "assets")));
   app.use(express.static(path.resolve(process.cwd(), "static-build")));
 
+  // Serve ads.txt explicitly
+  app.get("/ads.txt", (req, res) => {
+    const adsPath = path.resolve(process.cwd(), "ads.txt");
+    if (fs.existsSync(adsPath)) {
+      res.sendFile(adsPath);
+    } else {
+      res.status(404).send("Not Found");
+    }
+  });
+
   log("Expo routing: Checking expo-platform header on / and /manifest");
 }
 
